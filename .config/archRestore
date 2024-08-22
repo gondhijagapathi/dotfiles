@@ -1,0 +1,268 @@
+    1  ls
+    2  nmcli device wifi connect Infinity password *******
+    3  cd /opt
+    4  sudo git clone https://aur.archlinux.org/yay-git.git
+    5  ls
+    6  sudo chown jagapathi:jagapathi yay-git
+    7  cd yay-git
+    8  makepkg -si
+    9  yay -Suy
+   10  clear
+   11  sudo pacman -S hyprland
+   12  yay -S hyprland
+   13  clear
+   14  Hyprland
+   15  yay -Q hyprland
+   16  yay -Q hyprlang
+   17  yay -Q cairo
+   18  yay -Q glib2
+   19  yay -Q glslang
+   20  yay -Q libdrm
+   21  yay -Q libglvnd
+   22  cd .config
+   23  cd ~
+   24  cd .config
+   25  ls
+   26  cd hypr
+   27  ls
+   28  nvim hyprland.conf
+   29  Hyprland
+   30  ls
+   31  cd .config/hypr
+   32  nvim hyprland.conf
+   33  clear
+   34  kitty
+   35  sudo pacman -S kitty
+   36  Hyprland
+   37  ls
+   38  yay -S gtk3
+   39  Hyprland
+   40  yay -S google-chrome
+   41  chrome
+   42  yay -S wofi
+   43  [200~yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
+   44  yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
+   45  sudo nvim /etc/mkinitcpio.conf
+   46  sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
+   47  echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
+   48  cat /etc/modprobe.d/nvidia.conf
+   49  reboot
+   50  yay -S mako waybar swaylock-effects wlogout xdg-desktop-portal-hyprland swappy grim slurp thunar pamixer brightnessctl bluez bluez-utils blueman network-manager-applet thunar-archive-plugin file-roller btop starship ttf-jetbrains-mono-nerd noto-fonts-emoji
+   51  fastfetch
+   52  yay -S fastfetch
+   53  fastfetch
+   54  sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+   55  yay -S papirus-icon-theme
+   56  sudo systemctl enable --now bluetooth.service
+   57  yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+   58  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+   59  echo -e '\neval "$(starship init bash)"' >> ~/.bashrc
+   60  cd .config
+   61  ls
+   62  nvim starship.toml
+   63  ls
+   64  cd .config
+   65  ls
+   66  nvim starship.toml
+   67  echo "">starship.toml
+   68  nvim starship.toml
+   69  cd .config
+   70  nvim .bashrc
+   71  ls
+   72  ls -a
+   73  cd ..
+   74  nvim .bashrc
+   75  waybar &
+   76  killall waybar
+   77  thunar
+   78  ls
+   79  cd .config
+   80  ls
+   81  cd hypr
+   82  ls
+   83  nvim hyprland.conf
+   84  sudo pacman-key --recv-keys 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+   85  sudo pacman-key --finger 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+   86  sudo pacman-key --lsign-key 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+   87  sudo pacman-key --finger 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+   88  echo -e "\n[g14]\nServer = https://arch.asus-linux.org" | sudo tee -a /etc/pacman.conf
+   89  cat /etc/pacman.conf
+   90  sudo pacman -Suy --noconfirm
+   91  yay -S asusctl
+   92  yay -S supergfxctl
+   93  yay -S rog-control-center
+   94  sudo systemctl enable --now power-profiles-daemon.service
+   95  sudo systemctl enable --now supergfxd
+   96  ls
+   97  nvim xdg-portal-hyprland
+   98  ls
+   99  nvim hyprland.conf
+  100  cd ..
+  101  ls
+  102  mkdir mako
+  103  cd mako
+  104  mkdir conf
+  105  mkdir icons
+  106  ls
+  107  cd config
+  108  cd conf
+  109  nvim config
+  110  cd ..
+  111  cd ..
+  112  ls
+  113  mkdir swaylock
+  114  cd swaylock
+  115  nvim config
+  116  cd ..
+  117  ls
+  118  mkdir wlogout
+  119  cd wlogout
+  120  nvim layout
+  121  cd ..
+  122  ls
+  123  mkdir wofi
+  124  cd wofi
+  125  nvim config
+  126  mkdir styles
+  127  cd styles
+  128  ls
+  129  cd ..
+  130  ls
+  131  rmdir styles
+  132  ls
+  133  nvim style.css
+  134  cd ..
+  135  ls
+  136  cd kitty
+  137  ls
+  138  cd ..
+  139  cd .config/kitty
+  140  ls
+  141  nvim kitty.conf
+  142  ls
+  143  cd /home/jagapathi/.config/HyprV/waybar/scripts/
+  144  ls
+  145  nvim brightness.txt
+  146  mv brightness.txt brightness
+  147  nvim brightness.txt
+  148  nvim brightness
+  149  nvim kb-brightness
+  150  nvim power_profile
+  151  nvim volume
+  152  nvim update-sys
+  153  cd ..
+  154  cd ..
+  155  cd ..
+  156  ls
+  157  cd hypr
+  158  nvim hyprland.conf
+  159  pamixer
+  160  pamixer -i 5
+  161  mako
+  162  ls
+  163  cd .config/hypr
+  164  ls
+  165  nvim hyprland.conf
+  166  cd ..
+  167  cd HyprV/waybar/scripts
+  168  ls
+  169  chmod +x volume
+  170  ls
+  171  killall mako
+  172  killall mako
+  173  chmod +x brightness
+  174  chmod +x kb-brightness
+  175  chmod +x power_profile
+  176  chmod +x update-sys
+  177  killall mako
+  178  killall mako
+  179  killall mako
+  180  cd ..
+  181  cd ..
+  182  cd ..
+  183  ls
+  184  cd mako
+  185  ls
+  186  cd conf
+  187  ls
+  188  mv config ../config
+  189  ls
+  190  cd ..
+  191  ls
+  192  rmdir conf
+  193  ls
+  194  cd ..
+  195  asusctl profile -p
+  196  cd HyprV/waybar/scripts
+  197  ls
+  198  nvim power_profile
+  199  ./power_profile
+  200  ./power_profile next
+  201  ./power_profile next
+  202  sudo pacman -S gvfs
+  203  sudo pacman -S thunar-volman
+  204  blueman-applet
+  205  sudo pacman -Syu
+  206  sudo pacman -S ntfs-3g curl wget
+  207  sudo pacman -S jdk-openjdk
+  208  sudo pacman -S amd-ucode
+  209  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  210  yay -S visual-studio-code-bin
+  211  Hyprland
+  212  Hyprland
+  213  reboot
+  214  ls
+  215  cd .config
+  216  l
+  217  sls
+  218  ls
+  219  cd hypr
+  220  ls
+  221  nvim hyprland.conf
+  222  Hyprland
+  223  Hyprland
+  224  killall swappy
+  225  exit
+  226  btop
+  227  killall swappy
+  228  killall swappy
+  229  cd .config
+  230  ls
+  231  cd hypr
+  232  ls
+  233  nvim hyprland.conf
+  234  nvim hypridle.conf
+  235  ls
+  236  cd ..
+  237  ls
+  238  cd wlogout
+  239  ls
+  240  cat layout
+  241  cd ..
+  242  cd HyprV/waybar/scripts
+  243  ls
+  244  cat brightness
+  245  brightnessctl -e4 -s set 25%
+  246  brightnessctl -r
+  247  cd ..
+  248  ls
+  249  cd ..
+  250  cd ..
+  251  cd hypr
+  252  ls
+  253  nvim hypridle.conf
+  254  sudo pacman -S hypridle
+  255  systemctl --user enable --now hypridle.service
+  256  nvim hyprland.conf
+  257  killall swappy
+  258  slurp
+  259  cd .config
+  260  ls
+  261  cd hypr
+  262  ls
+  263  nvim hyprland.conf
+  264  nvim hypridle.conf
+  265  ls
+  266  cd .config
+  267  ls
+  268  history >> commandsBackUp.txt
