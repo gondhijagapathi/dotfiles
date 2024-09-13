@@ -1,184 +1,191 @@
-{
-    "layer": "top",
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "spacing": 0,
-
-    "modules-left": [
-        "custom/appmenu",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-	    "idle_inhibitor",
-        "custom/updates",
-        "pulseaudio",
-        "backlight",
-        "tray",
-        "custom/power_profile",
-        "battery",
-	    "clock",
-	    "custom/exit"
-    ],
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰛐",
-            "deactivated": "󰛑"
+[
+    {
+        "layer": "top",
+        "margin-bottom": 0,
+        "margin-left": 10,
+        "margin-right": 10,
+        "margin-top": 5,
+        "spacing": 0,
+        "modules-left": [
+            "custom/appmenu",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "idle_inhibitor",
+            "custom/updates",
+            "pulseaudio",
+            "backlight",
+            "tray",
+            "custom/power_profile",
+            "battery",
+            "clock",
+            "custom/exit"
+        ],
+        "hyprland/window": {
+            //"format": "{}"   // <--- these is the default value  
+            "format": "<span font='9' rise='-4444'>{}</span>",
+            "icon": true
         },
-        "tooltip": true
-    },
-
-    "custom/power_profile": {
-        //shows the current power profile and switches to next on click
-        "exec": "~/.config/HyprV/waybar/scripts/power_profile",
-        "return-type": "json",
-        "interval": 20,
-        "format": "{}",
-        "on-click": "~/.config/HyprV/waybar/scripts/power_profile next",
-        "signal": 8
-    },
-
-    "custom/power_btn": {
-        "format": "",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-        "tooltip": false
-    },
-
-    "custom/exit": {
-        "format": "",
-        "on-click": "wlogout -b 5",
-        "tooltip": false
-    },
-
-    "custom/lock_screen": {
-        "format": "",
-        "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
-        "tooltip": false
-    },
-
-    "hyprland/workspaces": {
-        "on-scroll-up": "hyprctl dispatch workspace r-1",
-        "on-scroll-down": "hyprctl dispatch workspace r+1",
-        "on-click": "activate",
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{}",
-        "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "󰛐",
+                "deactivated": "󰛑"
+            },
+            "tooltip": true
         },
-        "persistent_workspaces": {
-            "*": 5
+        "custom/power_profile": {
+            //shows the current power profile and switches to next on click
+            "exec": "~/.config/HyprV/waybar/scripts/power_profile",
+            "return-type": "json",
+            "interval": 20,
+            "format": "{}",
+            "on-click": "~/.config/HyprV/waybar/scripts/power_profile next",
+            "signal": 8
+        },
+        "custom/power_btn": {
+            "format": "",
+            "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+            "tooltip": false
+        },
+        "custom/exit": {
+            "format": "",
+            "on-click": "wlogout -b 5",
+            "tooltip": false
+        },
+        "custom/lock_screen": {
+            "format": "",
+            "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
+            "tooltip": false
+        },
+        "hyprland/workspaces": {
+            "on-scroll-up": "hyprctl dispatch workspace r-1",
+            "on-scroll-down": "hyprctl dispatch workspace r+1",
+            "on-click": "activate",
+            "active-only": false,
+            "all-outputs": true,
+            "format": "{}",
+            "format-icons": {
+                "urgent": "",
+                "active": "",
+                "default": ""
+            },
+            "persistent_workspaces": {
+                "*": 5
+            }
+        },
+        "battery": {
+            "states": {
+                // "good": 95,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon}{capacity}%",
+            "format-charging": " {capacity}%",
+            "format-plugged": " {capacity}%",
+            "format-alt": "{icon}  {time}",
+            // "format-good": "", // An empty format will hide the module
+            // "format-full": "",
+            "format-icons": [
+                " ",
+                " ",
+                " ",
+                " ",
+                " "
+            ]
+        },
+        /*"pulseaudio": {
+            "format": "{icon}",
+            "format-muted": "",
+            "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
+            "on-click-right": "pavucontrol",
+            "scroll-step": 5,
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", "", ""]
+            },
+            "tooltip": true,
+            "tooltip-format": "{icon} at {volume}%"
+        },*/
+        "pulseaudio": {
+            // "scroll-step": 1, // %, can be a float
+            "format": "{icon} {volume}%",
+            "format-bluetooth": "{volume}%  {icon}  {format_source}",
+            "format-bluetooth-muted": "  {icon}  {format_source}",
+            "format-muted": "  {format_source}",
+            "format-source": "{volume}% ",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": [
+                    "",
+                    " ",
+                    " "
+                ]
+            },
+            "on-click": "pavucontrol",
+            "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
+            "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc"
+        },
+        "pulseaudio#microphone": {
+            "format": "{format_source}",
+            "format-source": "",
+            "format-source-muted": "",
+            "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
+            "on-click-right": "pavucontrol",
+            "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
+            "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
+            "scroll-step": 5,
+            "tooltip": true,
+            "tooltip-format": " at {volume}%"
+        },
+        "backlight": {
+            "device": "intel_backlight",
+            "format": "{icon}  {percent}%",
+            "format-alt-click": "click-right",
+            "format-alt": "{icon}  {percent}%",
+            "format-icons": [
+                "󰃞",
+                "󰃟",
+                "󰃠"
+            ],
+            "on-scroll-up": "~/.config/HyprV/waybar/scripts/brightness --inc",
+            "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec"
+        },
+        "tray": {
+            "spacing": 10
+        },
+        "custom/updates": {
+            "format": "{}",
+            "exec": "~/.config/HyprV/waybar/scripts/update-sys",
+            "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
+            "interval": 300,
+            "tooltip": true
+        },
+        "custom/appmenu": {
+            "format": "",
+            "on-click": "wofi --show drun",
+            "tooltip": false
+        },
+        "clock": {
+            // "timezone": "America/New_York",
+            "format": "{:%a %b %d  %I:%M %p}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>",
+            //"format-alt": "{:%Y-%m-%d}"
+	    "on-click": "ags -t quicksettings"
         }
-    },
-
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "   {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{icon}  {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-
-    /*"pulseaudio": {
-        "format": "{icon}",
-        "format-muted": "",
-        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
-        "on-click-right": "pavucontrol",
-        "scroll-step": 5,
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "tooltip": true,
-        "tooltip-format": "{icon} at {volume}%"
-    },*/
-
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}%  {icon} {format_source}",
-        "format-bluetooth-muted": "  {icon} {format_source}",
-        "format-muted": "  {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", " ", " "]
-        },
-        "on-click": "pavucontrol",
-        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
-        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc"
-    },
-
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
-        "on-click-right": "pavucontrol",
-        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
-        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
-        "scroll-step": 5,
-        "tooltip": true,
-        "tooltip-format": " at {volume}%"
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}  {percent}%",
-        "format-alt-click": "click-right",
-        "format-alt": "{icon}  {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "~/.config/HyprV/waybar/scripts/brightness --inc",
-        "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec"
-    },
-
-    "tray": {
-        "spacing": 10
-    },
-
-    "custom/updates": {
-        "format": "{}",
-        "exec": "~/.config/HyprV/waybar/scripts/update-sys",
-        "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
-        "interval": 300,
-        "tooltip": true
-    },
-
-    "custom/appmenu": {
-        "format": "",
-        "on-click": "wofi --show drun",
-        "tooltip": false
-    },
-
-    "clock": {
-        // "timezone": "America/New_York",
-	    "format": "{:%I:%M %p}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     }
-}
+]

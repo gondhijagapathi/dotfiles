@@ -32,3 +32,6 @@ export LD_LIBRARY_PATH=/usr/lib/zoomvdi-universal-plugin/Qt/lib/
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
