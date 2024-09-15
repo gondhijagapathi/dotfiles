@@ -19,3 +19,7 @@
 ## NeoVim Config
 
 ![](https://github.com/gondhijagapathi/dotfiles/blob/main/Images/2.png?raw=true)
+
+## Wlogout Config
+
+![](https://github.com/gondhijagapathi/dotfiles/blob/main/Images/6.png?raw=true)
